@@ -27,7 +27,7 @@ public class Proposta {
 
     private String observacao;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 

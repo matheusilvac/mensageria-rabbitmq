@@ -1,5 +1,10 @@
 package com.matheusilvac.proposta_app.dtos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PropostaResponseDTO{
     private Long id;
     private String nome;
