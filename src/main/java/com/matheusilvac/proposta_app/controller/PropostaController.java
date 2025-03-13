@@ -13,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/proposta")
@@ -22,8 +23,8 @@ public class PropostaController {
     private PropostaService propostaService;
 
     @GetMapping
-    public Page<PropostaResponseDTO> obterTodos(@PageableDefault(size = 10) Pageable paginacao){
-      return propostaService.obterTodos(paginacao);
+    public ResponseEntity<List<PropostaResponseDTO>> obterTodos(){
+      return ResponseEntity.ok(propostaService.obterTodos());
     }
 
     @PostMapping

@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @AllArgsConstructor
@@ -20,8 +22,8 @@ public class PropostaService {
 
     private final PropostaMapper propostaMapper;
 
-    public Page<PropostaResponseDTO> obterTodos(Pageable paginacao){
-        return propostaRepository.findAll(paginacao);
+    public List<PropostaResponseDTO> obterTodos(){
+      return propostaMapper.convertListEntityToListDto(propostaRepository.findAll());
     }
 
     public PropostaResponseDTO criar(PropostaRequestDTO requestDTO) {
