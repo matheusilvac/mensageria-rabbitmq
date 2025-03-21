@@ -6,6 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface PropostaRepository extends CrudRepository<Proposta, Long> {
     Page<PropostaResponseDTO> findAll(Pageable paginacao);
+
+    List<Proposta> findAllByIntegradaIsFalse();
 }
